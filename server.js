@@ -1,9 +1,12 @@
+// imports
 // setting up express
 const express = require('express');
+
 const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+// create instance of express in app variable
 const app = express();
 
 // setting up port
@@ -14,10 +17,10 @@ app.listen(PORT, function() {
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'dist')));
 // setting up cors
-//app.use(cors());
+
 // setting up logger
 app.use(logger('dev'));
-// setting up body parser
+// setting up body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 

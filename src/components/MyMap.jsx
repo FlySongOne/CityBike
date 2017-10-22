@@ -18,7 +18,7 @@ class MyMap extends React.Component {
       gmap:  this.props.googleMaps,
     };
   }
-
+  // axios that gets citibike data from localhost 3001
   componentDidMount() {
     axios('/bikes')
       .then((res) => {
@@ -41,11 +41,13 @@ class MyMap extends React.Component {
       <div className="map">
 
         <GoogleMap
-          googleMaps={this.state.gmap} // map board with nothing on it
-      // You can add and remove coordinates on the fly.
-      // The map will rerender new markers and remove the old ones.
+          googleMaps={this.state.gmap}
+        // map board with nothing on it
 
-
+        // coordinates takes data of a list of citibike stations and it
+        // filter through the list and return only station with more than 30
+        // available docks. It maps through each station and takes available
+        // bike, docks and updated time with latitude and longitude.
         coordinates={
         this.state.stationsData
           .filter(station => station.availableDocks > 30)
@@ -61,41 +63,7 @@ class MyMap extends React.Component {
               },
 
           })
-/*
-          // Define Marker InfoWindow
-          {this.state.infoWindow} = new {this.state.gmap.InfoWindow}({
-              content: `
-                <div>
-                  <h3>NYC<h3>
-                  <div>
-                    Song Song Song
-                  </div>
-                </div>
-              `
-            })
 
-*/
-
-            // Open InfoWindow when Marker will be clicked
- //           googleMaps.event.addListener(marker, "click", () => {
- //             infoWindow.open(map, marker)
- //           })
-
-/*
-            // Change icon when Marker will be hovered
-            googleMaps.event.addListener(marker, "mouseover", () => {
-              marker.setIcon(iconMarkerHover)
-            })
-
-            googleMaps.event.addListener(marker, "mouseout", () => {
-              marker.setIcon(iconMarker)
-            })
-
-            // Open InfoWindow directly
-            infoWindow.open(map, marker)
-            },
-         }
-    */
        )}
           center={{ lat: 40.76727216, lng: -73.99392888 }}
           zoom={12}
