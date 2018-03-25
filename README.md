@@ -1,5 +1,5 @@
 ### CityBike App
- The City Bike is to promote healthy lifestlye for new yorkers 
+ The City Bike is to promote a healthy lifestyle for new yorkers 
 and reduce air pollution by riding bikes. This app provides information regarding where Citi Bike stations are located, how many available bikes and empty docks are. It also shows charts about the total calories burned by riders and the total carbon Citi Bike riders offset each month in 2017.
 
 ![home](./src/imgs/citybike_map_copy.png)
